@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio ToDo</title>
+    <title>{{ producto.nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Este es el inicio del todo</h1>
+    <header>
+        <h1>🍨 {{ producto.nombre }} 🍨</h1>
+        <a href="{{ url_for('inicio') }}" class="boton-volver">← Volver al menú</a>
+    </header>
+
+    <div class="detalle-producto">
+        <div class="producto-grande">
+            <img src="{{ url_for('static', filename='images/' + producto.imagen) }}" alt="{{ producto.nombre }}">
+            <div class="info-detallada">
+                <h2>{{ producto.nombre }}</h2>
+                <p class="descripcion-detalle">{{ producto.descripcion }}</p>
+                <div class="precio-detalle">{{ producto.precio }}</div>
+                <button class="boton-comprar">¡Lo quiero!</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

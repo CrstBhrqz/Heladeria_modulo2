@@ -1,10 +1,12 @@
 from flask import Flask
-from config.config import Config
-from config.db_ice_cream_saloon import db
-from config.routes import register_routes
+from app.config.config import Config
+from app.config.db_ice_cream_saloon import db
+from app.config.routes import register_routes
 
 app = Flask(__name__, template_folder="views")
 
+
+print("congig de config.py appppp")
 app.config.from_object(Config)
 db.init_app(app)
 register_routes(app)
